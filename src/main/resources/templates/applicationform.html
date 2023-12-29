@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Application Form</title>
+    <link th:href="@{/css/master.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="inner_container">
+
+        <!-- Application Form Title -->
+        <div class="title_container">
+            <img src="/image/university.png" width="250" height="160"/>
+            <label class="title">Application form for a certificate of studies
+                <p></p>
+            </label>
+        </div>
+
+        <!-- Error Messages -->
+        <div class="error_container" th:if="${unknownError}">
+            <div class="error">Something went wrong, please try again.</div>
+        </div>
+        <div class="error_container" th:if="${dateNotParsable}">
+            <div class="error">The date entered was invalid.</div>
+        </div>
+
+        <!-- Form -->
+        <div class="form_container">
+            <form th:action="@{/applicationform}" method="post" th:object="${applicationForm}">
+                <!-- Application Category -->
+                <!--                <div class="label_container">-->
+                <!--                    <label class="label" for="applicationcategory">Application Category:*</label>-->
+                <!--                </div>-->
+                <!--                <select name="applicationFormapplicationcategory" id="applicationcategory" class="check-menu-item"-->
+                <!--                        autofocus="autofocus"-->
+                <!--                        th:field="*{applicationcategory}" value="${applicationcategory}">-->
+                <!--                    <option value="Postgraduate MSc">Certificate of studies</option>-->
+                <!--                </select>-->
+                <!--                <br/>-->
+                <div class="label_container">
+                    <label class="label" for="Date">Date of publication:*</label>
+                </div>
+                <input type="date" name="applicationFormDate" id="Date" class="check-menu-item"
+                       autofocus="autofocus"
+                       th:field="*{date}" value="${date}">
+                <!--                    <option value="Postgraduate MSc">Certificate of studies</option>-->
+
+                <br/>
+
+                <div class="label_container">
+                    <label class="label" for="Protocolid">Protocol Id:*</label>
+                </div>
+                <input type="text" name="applicationFormProtocolid" id="Protocolid" class="check-menu-item"
+                       autofocus="autofocus"
+                       th:field="*{protocolid}" value="${protocolid}">
+                <!--                    <option value="Postgraduate MSc">Certificate of studies</option>-->
+                <!--                </select>-->
+                <br/>
+
+                <div class="label_container">
+                    <label class="label" for="RequestCode">Request Code:*</label>
+                </div>
+                <input type="text" name="applicationFormRequestCode" id="RequestCode" class="check-menu-item"
+                       autofocus="autofocus"
+                       th:field="*{requestcode}" value="${requestCode}">
+                <!--                    <option value="Postgraduate MSc">Certificate of studies</option>-->
+                <!--                </select>-->
+                <br/>
+
+                <div class="label_container">
+                    <label class="label" for="Address">Address:*</label>
+                </div>
+                <input type="text" name="applicationFormAddress" id="Address" class="check-menu-item"
+                       autofocus="autofocus"
+                       th:field="*{address}" value="${address}">
+                <!--                    <option value="Postgraduate MSc">Certificate of studies</option>-->
+                <!--                </select>-->
+                <br/>
+
+                <div class="label_container">
+                    <label class="label" for="PhoneNumber">PhoneNumber:*</label>
+                </div>
+                <input type="text" name="applicationFormPhoneNumber" id="PhoneNumber" class="check-menu-item"
+                       autofocus="autofocus"
+                       th:field="*{phonenumber}" value="${phoneNumber}">
+                <!--                    <option value="Postgraduate MSc">Certificate of studies</option>-->
+                <!--                </select>-->
+                <br/>
+
+                <div class="label_container">
+                    <label class="label" for="Fax">Fax:*</label>
+                </div>
+                <input type="text" name="applicationFormFax" id="Fax" class="check-menu-item"
+                       autofocus="autofocus"
+                       th:field="*{fax}" value="${fax}">
+                <!--                    <option value="Postgraduate MSc">Certificate of studies</option>-->
+                <!--                </select>-->
+                <br/>
+
+                <div class="label_container">
+                    <label class="label" for="Email">Email:*</label>
+                </div>
+                <input type="text" name="applicationFormEmail" id="Email" class="check-menu-item"
+                       autofocus="autofocus"
+                       th:field="*{email}" value="${email}">
+                <!--                    <option value="Postgraduate MSc">Certificate of studies</option>-->
+                <!--                </select>-->
+                <br/>
+
+                <div class="label_container">
+                    <label class="label" for="Information">Information:*</label>
+                </div>
+                <input type="text" name="applicationFormInformation" id="Information" class="check-menu-item"
+                       autofocus="autofocus"
+                       th:field="*{information}" value="${information}">
+                <br/>
+                <!-- Anticipated Entry Term -->
+                <div class="label_container">
+                    <label class="label" for="semester">Semester of study:*</label>
+                </div>
+                <select name="applicationFormsemester" id="semester" class="check-menu-item"
+                        autofocus="autofocus"
+                        th:field="*{semester}" value="${semester}">
+                    <option value="1">Term 1</option>
+                    <option value="2">Term 2</option>
+                    <option value="3">Term 3</option>
+                    <option value="4">Term 4</option>
+                </select>
+                <br/>
+
+                <!-- Academic Programme -->
+                <!--                <div class="label_container">-->
+                <!--                    <label class="label" for="academicprogramme">Academic Programme:*</label>-->
+                <!--                </div>-->
+                <!--                <select name="applicationForm.academicprogramme" type="text" id="academicprogramme"-->
+                <!--                        class="check-menu-item"-->
+                <!--                        autofocus="autofocus"-->
+                <!--                        th:field="*{academicprogramme}" value="${academicprogramme}">-->
+                <!--                    <option value="Computer Science">Computer Science</option>-->
+                <!--                </select>-->
+                <!--                <br/>-->
+
+                <!-- Mode of Study -->
+                <div class="label_container">
+                    <label class="label" for="modeofstudy">Mode of Study:*</label>
+                </div>
+                <select name="applicationForm.modeofstudy" id="modeofstudy" class="check-menu-item" autofocus="autofocus"
+                        th:field="*{modeofstudies}" value="${modeofstudies}">
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                </select>
+                <br/>
+
+                <div class="button_container2" align="center">
+                    <input class="button2" type="submit" value="Upload your Credential"/>
+                </div>
+                <div class="button_container1" align="center">
+                    <a th:href="@{'http://localhost:3000/applicationForm'}" class="button1">Abort your Application</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

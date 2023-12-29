@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage your account</title>
+    <link th:href="@{/css/master.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="inner_container">
+        <div class="img_container" th:style="'background:url(/image/line-resized.jpg)'"></div>
+        <div class="box">
+            <div class="title_container">
+                <img src="/image/university.png" width="250" height="160"/>
+                <h1>Application form for Academic Books of Semester 3</h1>
+                <script language="javascript">
+
+                </script>
+
+                <h5><span style="font-size: 15px; color: #CCCCCC; font-family: 'Times New Roman'; ">ΤΕΧΝΟΛΟΓΙΑ ΛΟΓΙΣΜΙΚΟΥ:</span>
+                    <label class="html-editor-align-justify" th:text="${bookForm3 != null ? bookForm3.semester3books[0] : 'N/A'}"></label>
+                </h5>
+
+                <h5><span style="font-size: 15px; color: #CCCCCC; font-family: 'Times New Roman'; ">ΑΣΦΑΛΕΙΑ ΣΥΣΤΗΜΑΤΩΝ:</span>
+                    <label class="html-editor-align-justify" th:text="${bookForm3 != null ? bookForm3.semester3books[1] : 'N/A'}"></label>
+                </h5>
+
+                <h5><span style="font-size: 15px; color: #CCCCCC; font-family: 'Times New Roman'; ">ΑΛΓΟΡΙΘΜΟΙ ΚΑΙ ΠΟΛΥΠΛΟΚΟΤΗΤΑ:</span>
+                    <label class="html-editor-align-justify" th:text="${bookForm3 != null ? bookForm3.semester3books[2] : 'N/A'}"></label>
+                </h5>
+
+                <h5><span style="font-size: 15px; color: #CCCCCC; font-family: 'Times New Roman'; ">ΣΗΜΑΤΑ ΚΑΙ ΣΥΣΤΗΜΑΤΑ:</span>
+                    <label class="html-editor-align-justify" th:text="${bookForm3 != null ? bookForm3.semester3books[3] : 'N/A'}"></label>
+                </h5>
+
+
+
+                <div class="button_container1">
+                    <a th:href="@{'http://localhost:8080/BookForm3'}" class="button1">Review your Application</a>
+                    <div class="button_container2">
+                        <a th:href="@{'http://localhost:5000/verifypresentationBookForm3'}" class="button2">Verify your Possessed Credential</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

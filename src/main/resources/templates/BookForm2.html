@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Application Form</title>
+  <link th:href="@{/css/master.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+  <div class="inner_container">
+
+    <!-- Application Form Title -->
+    <div class="title_container">
+      <img src="/image/university.png" width="250" height="160"/>
+      <label class="title">Application form for selection of Academic Books
+        <p></p>
+      </label>
+    </div>
+
+    <!-- Error Messages -->
+    <div class="error_container" th:if="${unknownError}">
+      <div class="error">Something went wrong, please try again.</div>
+    </div>
+    <div class="error_container" th:if="${dateNotParsable}">
+      <div class="error">The date entered was invalid.</div>
+    </div>
+
+    <!-- Form -->
+    <div class="form_container">
+      <form th:action="@{/BookForm2}" method="post" th:object="${bookForm2}">
+
+        <!--        <select name="applicationForm.modestudy" id="modestudy" class="check-menu-item" autofocus="autofocus"-->
+        <!--                th:field="*{modeofstudies}" value="${modestudy}">-->
+        <!--          <option value="Full-time">Full-time</option>-->
+        <!--          <option value="Part-time">Part-time</option>-->
+        <!--        </select>-->
+        <h4>Semester 2</h4>
+
+        <div class="label_container">
+          <label class="label" for="Opp">ΑΝΤΙΚΕΙΜΕΝΟΣΤΡΑΦΗΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ:*</label>
+        </div>
+        <select name="Opp" id="Opp" class="check-menu-item" autofocus="autofocus"
+                th:field="*{semester2books[0]}" value="${semester2books[0]}">
+          <option value="OppBook">Εισαγωγή στον αντικειμενοστραφή προγραμματισμό</option>
+        </select>
+        <br />
+
+        <div class="label_container">
+          <label class="label" for="datab">ΒΑΣΕΙΣ ΔΕΔΟΜΕΝΩΝ:*</label>
+        </div>
+        <select name="datab" id="datab" class="check-menu-item" autofocus="autofocus"
+                th:field="*{semester2books[1]}" value="${semester2books[1]}">
+          <option value="databBook">ΒΑΣΕΙΣ ΔΕΔΟΜΕΝΩΝ Η ΒΑΣΙΚΗ ΘΕΩΡΙΑ</option>
+        </select>
+        <br />
+
+        <div class="label_container">
+          <label class="label" for="os">ΛΕΙΤΟΥΡΓΙΚΑ ΣΥΣΤΗΜΑΤΑ:*</label>
+        </div>
+        <select name="os" id="os" class="check-menu-item" autofocus="autofocus"
+                th:field="*{semester2books[2]}" value="${semester2books[2]}">
+          <option value="osBook">ΣΥΝΧΡΟΝΑ ΛΕΙΤΟΥΡΓΙΚΑ ΣΥΣΤΗΜΑΤΑ</option>
+        </select>
+        <br />
+
+        <div class="label_container">
+          <label class="label" for="Simata">ΣΗΜΑΤΑ ΚΑΙ ΣΥΣΤΗΜΑΤΑ:*</label>
+        </div>
+        <select name="Simata" id="Simata" class="check-menu-item" autofocus="autofocus"
+                th:field="*{semester2books[3]}" value="${semester2books[3]}">
+          <option value="SimataBook">ΣΗΜΑΤΑ ΚΑΙ ΣΥΣΤΗΜΑΤΑ ΜΙΑ ΣΥΝΧΡΟΝΗ ΠΡΟΣΕΓΓΙΣΗ</option>
+        </select>
+
+
+        <div class="button_container2" align="center">
+          <input class="button2" type="submit" value="Upload your Credential"/>
+        </div>
+        <div class="button_container1" align="center">
+          <a th:href="@{'http://localhost:3000/applicationForm'}" class="button1">Abort your Application</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
